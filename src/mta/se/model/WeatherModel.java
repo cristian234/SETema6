@@ -25,7 +25,6 @@ public class WeatherModel {
         wind = winds;
         verifytemp();
         verifyWind();
-        choosePicture();
         notifyListeners();
     }
 
@@ -56,21 +55,6 @@ public class WeatherModel {
             description += "Fast wind";
         } else {
             description += "Very fast wind";
-        }
-    }
-    public static void choosePicture()
-    {
-        switch (description_id)
-        {
-            case '0': imgPath = "C:\\Users\\Cristian\\Pictures\\snowing.jpg";
-                break;
-            case '1': imgPath = "C:\\Users\\Cristian\\Pictures\\raining.jpg";
-                break;
-            case '2': imgPath = "C:\\Users\\Cristian\\Pictures\\cloudy.jpg";
-                break;
-            case '3': imgPath = "C:\\Users\\Cristian\\Pictures\\sunny.jpg";
-                break;
-            default:break;
         }
     }
 

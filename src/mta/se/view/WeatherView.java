@@ -25,11 +25,9 @@ import javax.swing.JFrame;
  */
 public class WeatherView extends JFrame implements IModelListeners, IView {
     private static final long serialVersionUID = -5758555454500685115L;
-    private IController mCalcController;
     private WeatherModel nModel;
 
     // View Components
-    private  JLabel mImageLabel = new JLabel();
     private JTextField mWeatherTemp = new JTextField(2);
     private JTextField mWheaterLabel = new JTextField(15);
     private JTextField mWeatherWind = new JTextField(2);
@@ -67,8 +65,6 @@ public class WeatherView extends JFrame implements IModelListeners, IView {
         nModel = model;
         mWeatherTemp.setText(Integer.toString(model.getTemperature()));
         mWeatherWind.setText(Integer.toString(model.getWind()));
-        mImageLabel.setIcon(new ImageIcon(model.getImgPath()));
-//        mImageLabel = new JLabel(new ImageIcon(model.getImgPath()));
         mWheaterLabel.setText(model.getDescription());
     }
 
@@ -86,7 +82,5 @@ public class WeatherView extends JFrame implements IModelListeners, IView {
         mWeatherWind.setText(Integer.toString(nModel.getWind()));
         mWeatherTemp.setText(Integer.toString(nModel.getTemperature()));
         mWheaterLabel.setText(nModel.getDescription());
-        mImageLabel.setIcon(new ImageIcon(nModel.getImgPath()));
-  //      mImageLabel = new JLabel(new ImageIcon(nModel.getImgPath()));
     }
 }
