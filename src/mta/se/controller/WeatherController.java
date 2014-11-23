@@ -13,12 +13,13 @@ import java.util.Random;
 /**
  * Created by Cristian on 11/20/2014.
  */
-public class WeatherController implements IController{
+public class WeatherController implements IController {
 
     private WeatherModel nWModel;
     private List<IView> nWViews;
 
-    public WeatherController(){}
+    public WeatherController() {
+    }
 
     public static int randInt(int min, int max) {
         Random rand = new Random();
@@ -37,10 +38,6 @@ public class WeatherController implements IController{
                     notifyViews(true, e.getMessage());
                 }
             }
-            else
-            {
-                System.out.println("Aici nu se intra");
-            }
         }
     }
 
@@ -51,6 +48,7 @@ public class WeatherController implements IController{
 
         nWViews.add(view);
     }
+
     public void addModel(WeatherModel model) {
         nWModel = model;
     }

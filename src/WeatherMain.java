@@ -6,10 +6,7 @@ import mta.se.view.WeatherView;
  * Created by Cristian on 11/22/2014.
  */
 public class WeatherMain {
-    public static void main(String [] args)
-    {
-       // WeatherView form=new WeatherView();
-       // NewForm form = new NewForm();
+    public static void main(String[] args) {
         WeatherModel nModel = new WeatherModel();
         WeatherController nController = new WeatherController();
         WeatherView nView = new WeatherView();
@@ -23,6 +20,6 @@ public class WeatherMain {
         nController.addView(nView);
 
         nView.setVisible(true);
-        
+
     }
 }
