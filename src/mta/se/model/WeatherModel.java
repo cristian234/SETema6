@@ -20,6 +20,7 @@ public class WeatherModel {
     {
         temperature = temp;
         wind = winds;
+        notifyListeners();
     }
     public static void verifytemp()
     {
@@ -85,5 +86,11 @@ public class WeatherModel {
         }
 
         mListeners.add(listener);
+    }
+    private void notifyListeners() {
+        if (mListeners != null && !mListeners.isEmpty()) {
+            for (IModelListeners listener : mListeners)
+                listener.onUpdate();
+        }
     }
 }

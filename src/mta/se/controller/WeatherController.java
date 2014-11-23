@@ -31,7 +31,15 @@ public class WeatherController implements IController{
         if (event.getActionCommand().equals(REFRESH)) {
             // Reset the model to its default state
             if (nWModel != null) {
-                    nWModel.setValue(randInt(-10, 40),randInt(3,70));
+                try {
+                    nWModel.setValue(randInt(-10, 40), randInt(3, 70));
+                } catch (Exception e) {
+                    notifyViews(true, e.getMessage());
+                }
+            }
+            else
+            {
+                System.out.println("Aici nu se intra");
             }
         }
     }
@@ -43,7 +51,6 @@ public class WeatherController implements IController{
 
         nWViews.add(view);
     }
-
     public void addModel(WeatherModel model) {
         nWModel = model;
     }

@@ -1,5 +1,6 @@
 package mta.se.view;
 
+import mta.se.controller.WeatherController;
 import mta.se.interfaces.IController;
 import mta.se.interfaces.IModelListeners;
 import mta.se.interfaces.IView;
@@ -21,35 +22,20 @@ import javax.swing.JFrame;
  */
 public class WeatherView extends JFrame implements IModelListeners,IView {
     private static final long serialVersionUID = -5758555454500685115L;
-
+    private IController mCalcController;
     private WeatherModel nModel;
 
     // View Components
     private JTextField mWeatherTemp = new JTextField(6);
-    private JLabel mWheaterLabel=new JLabel();
+    private JTextField mWheaterLabel = new JTextField(15);
     private JTextField mWeatherWind = new JTextField(6);
     private JButton mRefreshBtn = new JButton("Refresh");
 
     // Layout values
-    public static int randInt(int min, int max) {
-        Random rand = new Random();
-        int randomNum = rand.nextInt((max - min) + 1) + min;
-        return randomNum;
-    }
-
     public WeatherView() {
         mWeatherTemp.setEditable(false);
         mWeatherWind.setEditable(false);
-        mRefreshBtn.addActionListener(new ActionListener() {
-            @Override
-            public void actionPerformed(ActionEvent e) {
-                mWeatherTemp.setText(Integer.toString(randInt(-10, 40))+"℃");
-                mWeatherWind.setText(Integer.toString(randInt(3, 70))+"km/h");
-                /*mRefreshBtn.setActionCommand(IController.REFRESH);
-                mRefreshBtn.setText("Refresh");*/
 
-            }
-        });
 
         // Layout the components.
         JPanel content = new JPanel();
@@ -60,6 +46,7 @@ public class WeatherView extends JFrame implements IModelListeners,IView {
         content.add(new JLabel("Wind"));
         content.add(mWeatherWind);
         content.add(mRefreshBtn);
+        content.add(mWheaterLabel);
 
         // Finalize layout
         this.setContentPane(content);

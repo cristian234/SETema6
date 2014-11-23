@@ -23,18 +23,6 @@ public class WeatherMain {
         nController.addView(nView);
 
         nView.setVisible(true);
-        /*// Attach the view to the model
-        model.addModelListener(view);
-
-        // Tell the view about the model and the controller
-        view.addModel(model);
-        view.addController(controller);
-
-        // Tell the controller about the model and the view
-        controller.addModel(model);
-        controller.addView(view);
-
-        // Display the view
-        view.setVisible(true);*/
+        
     }
 }
